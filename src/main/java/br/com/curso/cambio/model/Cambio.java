@@ -3,17 +3,37 @@ package br.com.curso.cambio.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+
+@Entity(name="cambio")
 public class Cambio implements Serializable {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2129369021285582580L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name="from_currency", nullable = false, length = 3)
 	private String from;
+	
+	@Column(name="to_currency", nullable = false, length = 3)
 	private String to;
-	private BigDecimal convertionFactor;
+	
+	@Column(nullable = false)
+	private BigDecimal conversionFactor;
+	
+	@Transient
 	private BigDecimal convertedValue;
+	@Transient
 	private String environment;
 	
 	public Cambio() {
@@ -48,11 +68,11 @@ public class Cambio implements Serializable {
 	public void setTo(String to) {
 		this.to = to;
 	}
-	public BigDecimal getConvertionFactor() {
-		return convertionFactor;
+	public BigDecimal getConversionFactor() {
+		return conversionFactor;
 	}
-	public void setConvertionFactor(BigDecimal convertionFactor) {
-		this.convertionFactor = convertionFactor;
+	public void setConversionFactor(BigDecimal conversionFactor) {
+		this.conversionFactor = conversionFactor;
 	}
 	public BigDecimal getConvertedValue() {
 		return convertedValue;
