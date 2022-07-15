@@ -40,13 +40,13 @@ public class Cambio implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Cambio(Long id, String from, String to, BigDecimal convertionFactor, BigDecimal convertedValue,
+	public Cambio(Long id, String from, String to, BigDecimal conversionFactor, BigDecimal convertedValue,
 			String enviroment) {
 		super();
 		this.id = id;
 		this.from = from;
 		this.to = to;
-		this.convertionFactor = convertionFactor;
+		this.conversionFactor = conversionFactor;
 		this.convertedValue = convertedValue;
 		this.environment = enviroment;
 	}
